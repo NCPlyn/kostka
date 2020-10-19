@@ -64,6 +64,7 @@ function stats() {
   $("#statstab tbody").append("<tr>" +
         "<th scope='row'>"+hody.length+"</th>" +
         "<td>"+hodNow+"</td>" +
+        "<td>"+celkem()+"</td>" +
         "<td>"+(celkem()/hody.length).toFixed(2)+"</td>" +
         "<td>"+max()+"</td>" +
         "<td>"+min()+"</td>" +
