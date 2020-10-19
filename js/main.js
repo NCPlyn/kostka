@@ -6,7 +6,7 @@ let rs = document.getElementById('slow');
 let rm = document.getElementById('middle');
 let ru = document.getElementById('user');
 let ra = document.getElementById('auto');
-let audio = new Audio('roll.wav');
+let audio = new Audio('audio/roll.wav');
 let speed = 100;
 let hodNow = 0;
 let hody = [];
@@ -48,19 +48,19 @@ function doAfter() {
   ra.disabled = false;
   ru.disabled = false;
   userhozeno = 0;
-  pdone.innerHTML = "Done! You rolled " + g;
+  pdone.innerHTML = "Done! You rolled " + g + "!";
   hodNow = g;
   hody.push(g);
   stats();
 }
 
 function stats() {
-  pstats.innerHTML = `<p>Poslední hod: ${hodNow}</p>`;
-  pstats.innerHTML += `<p>Počet hodů: ${hody.length}</p>`;
-  pstats.innerHTML += `<p>Součet všech hodů: ${celkem()}</p>`;
-  pstats.innerHTML += `<p>Průměr všech hodů: ${(celkem()/hody.length).toFixed(2)}</p>`;
-  pstats.innerHTML += `<p>Hozené maximum: ${max()}</p>`;
-  pstats.innerHTML += `<p>Hozené minimum: ${min()}</p>`;
+  pstats.innerHTML = `<p>Last roll: ${hodNow}</p>`;
+  pstats.innerHTML += `<p>Number of rolls: ${hody.length}</p>`;
+  pstats.innerHTML += `<p>Sum of all rolls: ${celkem()}</p>`;
+  pstats.innerHTML += `<p>Average of all rolls: ${(celkem()/hody.length).toFixed(2)}</p>`;
+  pstats.innerHTML += `<p>Rolled maximum: ${max()}</p>`;
+  pstats.innerHTML += `<p>Rolled minimum: ${min()}</p>`;
   $("#statstab tbody").append("<tr>" +
         "<th scope='row'>"+hody.length+"</th>" +
         "<td>"+hodNow+"</td>" +
@@ -109,3 +109,37 @@ function min() {
   });
   return minimum;
 }
+
+//easteregg
+let timeo;
+let partya = new Audio('audio/party.mp3');
+let party = document.getElementById("party");
+let statstab = document.getElementById("statstab");
+
+party.addEventListener('change',function(){
+  if(party.checked == true) {
+      partya.play();
+      pparty();
+    } else {
+        clearTimeout(timeo);
+        partya.pause();
+        document.body.style.backgroundColor="#282C34";
+    }
+});
+
+function pparty() {
+  document.body.style.backgroundColor = "white";
+  statstab.classList.remove("table-dark");
+  timeo = setTimeout(function(){
+    document.body.style.backgroundColor="#282C34";
+    statstab.classList.add("table-dark");
+    timeo = setTimeout(function(){
+      pparty();
+    }, 50);
+  }, 50);
+}
+
+party.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
