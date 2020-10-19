@@ -11,4 +11,3 @@
 
 ## Todo:
  - Více kostek (dvě nebo tři)
- - Lepší statistiky
