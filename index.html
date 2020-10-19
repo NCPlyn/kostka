@@ -12,13 +12,18 @@
       <br><br>
       <img src="img/0.png" id="kimg" class="border border-primary rounded"><br><br>
       <h3 id="done">Waiting for roll...</h2>
-      <br><br>
-      <h2>Settings:</h2>
+      <br><hr><br>
+      <h2>Settings:</h2><br>
       <form>
+        <h4>Speed</h4>
         <input type="radio" name="s" id="fast" class="form-check-input">Fast<br>
         <input type="radio" name="s" id="middle" class="form-check-input" checked>Middle<br>
-        <input type="radio" name="s" id="slow" class="form-check-input">Slow
-      </form>
+        <input type="radio" name="s" id="slow" class="form-check-input">Slow<br>
+        <br>
+        <h4>GameType</h4>
+        <input type="radio" name="a" id="user" class="form-check-input">User stop (Click again to stop rolling)<br>
+        <input type="radio" name="a" id="auto" class="form-check-input" checked>Auto stop (Rolling will stop automatically)<br>
+      </form><br><hr>
       <h2>Statistics:</h2>
       <p id="stats"></p>
     </main>
