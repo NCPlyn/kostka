@@ -35,7 +35,6 @@ function shownhide() {
 
 function beforeRoll(){
   if(ru.checked == true && userhozeno == 1) {
-    h = 1;
   } else if (userhozeno == 0) {
     userhozeno = 1;
     getSpeed();
@@ -77,12 +76,14 @@ function disableradio() {
   double.disabled = true;
 }
 
-function doAfter(g) {
+function enableradio() {
   ra.disabled = false;
   ru.disabled = false;
   single.disabled = false;
   double.disabled = false;
-  userhozeno = 0;
+}
+
+function doAfter(g) {
   if(double.checked == true) {
     hotovodouble++;
   }
@@ -92,11 +93,15 @@ function doAfter(g) {
     hodNow += g;
     hody.push((hodNow+g));
     stats();
+    userhozeno = 0;
+    enableradio();
   } else if(single.checked == true){
     pdone.innerHTML = "Done! You rolled " + g + "!";
     hodNow = g;
     hody.push(g);
     stats();
+    userhozeno = 0;
+    enableradio();
   } else {
     hodNow = g;
   }
@@ -131,8 +136,7 @@ function hod(gimg) {
     if(i>=(h-1)) { doAfter(g); } //funkce pro věci po hodu
     i++;
     if(ru.checked == true) {
-      kimg.addEventListener("click", function() { h = 1; }); //interupter pro user stop
-      kimg2.addEventListener("click", function() { h = 1; });
+      gimg.addEventListener("click", function() { h = 1; }); //interupter pro user stop
     }
     if (i < h) { setTimeout(hhod, speed); } //delay a opakování
   }

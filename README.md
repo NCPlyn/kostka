@@ -1,5 +1,9 @@
 # Herní kostka - JS úkol
 
+Počet kostek:
+ - 1
+ - 2 (při User-stop módu se každá zastavuje sama!)
+
  Herní módy:
   - Úživatel zastaví kostku
   - Kostka se sama náhodně zastaví
@@ -9,5 +13,4 @@
   - Normální, 2-5s
   - Pomalá, 5-15s
 
-## Todo:
- - Zastavit každou kostku zvlášť při User-stop?
+Také je tam Párty mode :)
