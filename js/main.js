@@ -14,8 +14,6 @@ var g;
 var h;
 let userhozeno = 0;
 
-stats();
-
 kimg.addEventListener('click',function(){
   if(ru.checked == true && userhozeno == 1) {
     h = 1;
@@ -63,6 +61,13 @@ function stats() {
   pstats.innerHTML += `<p>Průměr všech hodů: ${(celkem()/hody.length).toFixed(2)}</p>`;
   pstats.innerHTML += `<p>Hozené maximum: ${max()}</p>`;
   pstats.innerHTML += `<p>Hozené minimum: ${min()}</p>`;
+  $("#statstab tbody").append("<tr>" +
+        "<th scope='row'>"+hody.length+"</th>" +
+        "<td>"+hodNow+"</td>" +
+        "<td>"+(celkem()/hody.length).toFixed(2)+"</td>" +
+        "<td>"+max()+"</td>" +
+        "<td>"+min()+"</td>" +
+        "</tr>");
 }
 
 function hod() {

@@ -24,3 +24,13 @@ img {
 #stats {
   margin-top: 2%;
 }
+
+#statstab {
+  margin-left: 20%;
+}
+
+.row {
+  padding-left: 15%;
+  padding-right: 15%;
+  margin-top: 2%;
+}

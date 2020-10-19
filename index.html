@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style/main.css">
   </head>
-  
   <body>
+
     <main class="text-center container">
       <img src="img/0.png" id="kimg" class="border border-light rounded">
       <h3 id="done">Waiting for roll...</h2>
@@ -25,7 +25,24 @@
       </form>
       <hr>
       <h2>Statistics:</h2>
-      <div id="stats"></div>
+      <div class="row justify-content-between">
+        <div class="col-xs-6" id="stats"></div>
+        <div>
+          <table class="table table-dark table-bordered col-xs-6" id="statstab" style="width:30%">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Average</th>
+                <th scope="col">Maximum</th>
+                <th scope="col">Minimum</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </main>
 
     <script src="js/main.js"></script>
