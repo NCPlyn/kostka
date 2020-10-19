@@ -8,13 +8,18 @@
     <link rel="stylesheet" href="style/main.css">
   </head>
   <body>
-    
+
     <main class="text-center container">
-      <img src="img/0.png" id="kimg" class="border border-light rounded">
+      <div id="imgs">
+        <img src="img/0.png" id="kimg" class="border border-light rounded">
+        <img src="img/0.png" id="kimg2" class="border border-light rounded">
+      </div>
       <h3 id="done">Waiting for roll...</h2>
       <hr>
       <h2>Settings:</h2>
       <form>
+        <input type="radio" name="d" id="single" class="form-check-input" checked>Single<br>
+        <input type="radio" name="d" id="double" class="form-check-input">Double<br>
         <h4>Speed</h4>
         <input type="radio" name="s" id="fast" class="form-check-input">Fast<br>
         <input type="radio" name="s" id="middle" class="form-check-input" checked>Middle<br>

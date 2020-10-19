@@ -38,3 +38,12 @@ img {
 table {
   width:30%;
 }
+
+#kimg2 {
+  visibility: hidden;
+  margin-left: 2%;
+}
+
+#imgs {
+  margin-left: 12%;
+}
