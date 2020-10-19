@@ -1,0 +1,26 @@
+body {
+  background-color:#282C34;
+  color:#9DA5B4;
+  margin-top:2%
+}
+
+hr {
+  border-top: 1px solid #9DA5B4;
+  margin: 3%;
+}
+
+h2,h3,h4 {
+  color:#D2D5DB;
+}
+
+h4 {
+  margin-top: 1.5%
+}
+
+img {
+  margin-bottom: 2%;
+}
+
+#stats {
+  margin-top: 2%;
+}

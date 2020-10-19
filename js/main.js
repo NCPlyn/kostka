@@ -8,11 +8,13 @@ let ru = document.getElementById('user');
 let ra = document.getElementById('auto');
 let audio = new Audio('roll.wav');
 let speed = 100;
-let hodNow = 1;
+let hodNow = 0;
 let hody = [];
-let g;
-let h;
+var g;
+var h;
 let userhozeno = 0;
+
+stats();
 
 kimg.addEventListener('click',function(){
   if(ru.checked == true && userhozeno == 1) {
@@ -36,7 +38,7 @@ function getSpeed() {
 
 function getGameType() {
   if(ra.checked == true) {
-    h = Math.floor(Math.random() * 30);
+    h = Math.floor(Math.random() * 30) + 5;
   } else if (ru.checked == true) {
     h = 999999;
     ra.disabled = true;
@@ -51,6 +53,10 @@ function doAfter() {
   pdone.innerHTML = "Done! You rolled " + g;
   hodNow = g;
   hody.push(g);
+  stats();
+}
+
+function stats() {
   pstats.innerHTML = `<p>Poslední hod: ${hodNow}</p>`;
   pstats.innerHTML += `<p>Počet hodů: ${hody.length}</p>`;
   pstats.innerHTML += `<p>Součet všech hodů: ${celkem()}</p>`;
@@ -83,7 +89,7 @@ function celkem() {
 }
 
 function max() {
-  let maximum = 1;
+  let maximum = 0;
   hody.forEach(function(value,index) {
     if (value > maximum) maximum = value;
   });
