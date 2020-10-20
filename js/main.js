@@ -16,6 +16,8 @@ let hodNow = 0;
 let hody = [];
 let userhozeno = 0;
 let hotovodouble = 0;
+let kostky = [];
+let pocetKostek = 1;
 
 kimg.addEventListener('click',function(){beforeRoll();});
 kimg2.addEventListener('click',function(){beforeRoll();});
@@ -27,9 +29,11 @@ function shownhide() {
   if(double.checked == true) {
     kimg2.style.visibility = 'visible';
     imgs.style.marginLeft = "0%"
+    pocetKostek = 2;
   } else {
     kimg2.style.visibility = 'hidden';
     imgs.style.marginLeft = "12%"
+    pocetKostek = 1;
   }
 }
 
@@ -84,27 +88,28 @@ function enableradio() {
 }
 
 function doAfter(g) {
-  if(double.checked == true) {
-    hotovodouble++;
-  }
-  if(double.checked == true && hotovodouble==2) {
-    hotovodouble = 0;
-    userhozeno = 0;
-    let out = hodNow + g;
-    hodNow = out;
-    pdone.innerHTML = "Done! You rolled " + out + "!";
-    hody.push(out);
-    stats();
-    enableradio();
-  } else if(single.checked == true){
+  if(pocetKostek > 1) {
+    kostky.push(g);
+    if(kostky.length == pocetKostek) {
+      userhozeno = 0;
+      let out = 0;
+      for (let i=0;i<kostky.length;i++) {
+        out += kostky[i];
+      }
+      kostky = [];
+      hodNow = out;
+      pdone.innerHTML = "Done! You rolled " + out + "!";
+      hody.push(out);
+      stats();
+      enableradio();
+    }
+  } else {
     userhozeno = 0;
     pdone.innerHTML = "Done! You rolled " + g + "!";
     hodNow = g;
     hody.push(g);
     stats();
     enableradio();
-  } else {
-    hodNow = g;
   }
 }
 
