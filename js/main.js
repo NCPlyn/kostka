@@ -43,6 +43,7 @@ addd.addEventListener('click',function(){
 });
 
 function beforeRoll(){
+  Math.seedrandom();
   if (userhozeno == 0) {
     userhozeno = 1;
     getSpeed();
