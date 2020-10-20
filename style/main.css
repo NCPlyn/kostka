@@ -39,11 +39,6 @@ table {
   width:30%;
 }
 
-#kimg2 {
-  visibility: hidden;
-  margin-left: 2%;
-}
-
-#imgs {
-  margin-left: 10%;
+img {
+  margin-right: 2%;
 }

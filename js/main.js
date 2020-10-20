@@ -1,5 +1,3 @@
-let kimg = document.getElementById('kimg');
-let kimg2 = document.getElementById('kimg2');
 let imgs = document.getElementById('imgs');
 let pdone = document.getElementById('done');
 let pstats = document.getElementById('stats');
@@ -8,8 +6,7 @@ let rs = document.getElementById('slow');
 let rm = document.getElementById('middle');
 let ru = document.getElementById('user');
 let ra = document.getElementById('auto');
-let single = document.getElementById('single');
-let double = document.getElementById('double');
+let addd = document.getElementById('add');
 let audio = new Audio('audio/roll.wav');
 let speed = 100;
 let hodNow = 0;
@@ -18,35 +15,44 @@ let userhozeno = 0;
 let hotovodouble = 0;
 let kostky = [];
 let pocetKostek = 1;
+let nazvy = [];
 
-kimg.addEventListener('click',function(){beforeRoll();});
-kimg2.addEventListener('click',function(){beforeRoll();});
+imgs.addEventListener('click',function(){beforeRoll();});
 
-single.addEventListener('click',function(){shownhide();});
-double.addEventListener('click',function(){shownhide();});
-
-function shownhide() {
-  if(double.checked == true) {
-    kimg2.style.visibility = 'visible';
-    imgs.style.marginLeft = "0%"
-    pocetKostek = 2;
-  } else {
-    kimg2.style.visibility = 'hidden';
-    imgs.style.marginLeft = "12%"
-    pocetKostek = 1;
+function isornot(num) {
+  for (let i=0;i<nazvy.length;i++) {
+    if(num == nazvy[i])
+    return 0;
   }
+  return 1;
 }
 
+addd.addEventListener('click',function(){
+  if(nazvy.length < 200) {
+    let num;
+    do {
+      num = Math.ceil(Math.random() * 205)+1;
+    }
+    while (isornot(num) == 0);
+    nazvy.push(num);
+    pocetKostek++;
+    imgs.innerHTML += '<img src="img/0.png" id="kimg'+num+'" class="border border-light rounded">'
+  } else {
+    alert("Maximum of 200! Can be more but I said nope");
+  }
+});
+
 function beforeRoll(){
-  if(ru.checked == true && userhozeno == 1) {
-  } else if (userhozeno == 0) {
+  if (userhozeno == 0) {
     userhozeno = 1;
     getSpeed();
-    if(double.checked == true) {
-      hod(kimg);
-      hod(kimg2);
-    } else if(single.checked == true){
-      hod(kimg);
+    if(pocetKostek > 1) {
+      hod(document.getElementById('kimg'));
+      for (let i=0;i<nazvy.length;i++) {
+        hod(document.getElementById("kimg"+nazvy[i]));
+      }
+    } else {
+      hod(document.getElementById('kimg'));
     }
   }
 }
@@ -76,15 +82,13 @@ function getGameType() {
 function disableradio() {
   ra.disabled = true;
   ru.disabled = true;
-  single.disabled = true;
-  double.disabled = true;
+  addd.disabled = true;
 }
 
 function enableradio() {
   ra.disabled = false;
   ru.disabled = false;
-  single.disabled = false;
-  double.disabled = false;
+  addd.disabled = false;
 }
 
 function doAfter(g) {
