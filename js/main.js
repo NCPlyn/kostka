@@ -88,19 +88,20 @@ function doAfter(g) {
     hotovodouble++;
   }
   if(double.checked == true && hotovodouble==2) {
-    pdone.innerHTML = "Done! You rolled " + (hodNow+g) + "!";
     hotovodouble = 0;
-    hodNow += g;
-    hody.push((hodNow+g));
-    stats();
     userhozeno = 0;
+    let out = hodNow + g;
+    hodNow = out;
+    pdone.innerHTML = "Done! You rolled " + out + "!";
+    hody.push(out);
+    stats();
     enableradio();
   } else if(single.checked == true){
+    userhozeno = 0;
     pdone.innerHTML = "Done! You rolled " + g + "!";
     hodNow = g;
     hody.push(g);
     stats();
-    userhozeno = 0;
     enableradio();
   } else {
     hodNow = g;
@@ -159,7 +160,7 @@ function max() {
 }
 
 function min() {
-  let minimum = 1;
+  let minimum = 12;
   hody.forEach(function(value,index) {
     if (value < minimum) minimum = value;
   });
