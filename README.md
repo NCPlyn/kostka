@@ -1,8 +1,7 @@
 # Herní kostka - JS úkol
 
 Počet kostek:
- - 1
- - 2 (při User-stop módu se každá zastavuje sama!)
+ - 1 až 200 (omezeno mnou)
 
  Herní módy:
   - Úživatel zastaví kostku
